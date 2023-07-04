@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));
 
 // main function / router
-app.use('/api/v1/user', userRouters)
+app.use('/api/v1/user', userRouters);
 // inserting a test data into mongodb
 /*
 Step 1: Interface
