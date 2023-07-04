@@ -1,5 +1,4 @@
 import express, { NextFunction, Request, Response, urlencoded } from 'express';
-import createUserToDo from './user.service';
 import createUserToDB from './user.service';
 
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
