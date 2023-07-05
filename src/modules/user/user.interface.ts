@@ -1,5 +1,5 @@
 interface IUser {
-    // id: string;
+    id: string;
     role: 'student';
     password: string;
     name: {

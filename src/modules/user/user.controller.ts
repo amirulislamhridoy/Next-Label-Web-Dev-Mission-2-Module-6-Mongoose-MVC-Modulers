@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response, urlencoded } from 'express';
-import {createUserToDB, getUsersToDB} from './user.service';
+import {createUserToDB, getUsersToDB, getUserById, getUserByMyId} from './user.service';
 
 const createUser = async (req: Request, res: Response, next: NextFunction) => {
     // patter
@@ -18,4 +18,21 @@ const getUser = async(req:Request, res:Response) => {
         data:users
     })
 }
-export {createUser, getUser}
+const findUserById = async (req:Request, res:Response) => {
+    const {id} = req.params
+    // console.log('params', req.params)
+    const user = await getUserById(id)
+    res.status(200).json({
+        status:'success',
+        data:user
+    })
+}
+const findUserByMyId = async(req:Request, res:Response) => {
+    const {id} = req.params
+    const user = await getUserByMyId(id)
+    res.status(200).json({
+        status: 'success',
+        data: user
+    })
+}
+export {createUser, getUser, findUserById, findUserByMyId}
