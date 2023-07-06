@@ -11,7 +11,7 @@ const userSchema = new Schema<IUser, UserModel, IUserMethods>({
     role: {
         type: String,
         required: true,
-        enum: ['student', 'admin'],
+        enum: ['student', 'admin'], // The enum validator is an array that will check if the value given is an item in the array. If the value is not in the array, Mongoose will throw a ValidationError when you try to save().
     },
     password: {
         type: String,
@@ -37,7 +37,7 @@ const userSchema = new Schema<IUser, UserModel, IUserMethods>({
     gender: {
         type:String,
         required: true,
-        enum: ['male','female'],
+        enum: ['male','female'], // The enum validator is an array that will check if the value given is an item in the array. If the value is not in the array, Mongoose will throw a ValidationError when you try to save().
     },
     email: {
         type: String,
