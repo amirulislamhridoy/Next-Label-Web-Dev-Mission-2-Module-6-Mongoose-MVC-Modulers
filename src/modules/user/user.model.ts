@@ -63,7 +63,7 @@ userSchema.method('fullName',function fullName(){
     return this.name.firstName + " " + this.name.lastName
 })
 userSchema.static('getAdminUsers',async function getAdminUsers(){
-    return this.find({role: 'student'})
+    return this.find({role: 'admin'})
 })
 const User = model<IUser, UserModel>('user', userSchema);
 
