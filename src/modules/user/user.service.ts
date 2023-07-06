@@ -36,5 +36,9 @@ const findUserByMyIdService = async(payload:string):Promise<IUser|null> => {
     const user = await User.findOne({id:payload}, {name:1})
     return user
 }
+const getAdminUsersService = async():Promise<IUser> => {
+  const users = await User.getAdminUsers()
+  return users
+}
 
-export {getAllUsers, createUserService,findUserByIdService, findUserByMyIdService}
+export {getAllUsers, createUserService,findUserByIdService, findUserByMyIdService, getAdminUsersService}
