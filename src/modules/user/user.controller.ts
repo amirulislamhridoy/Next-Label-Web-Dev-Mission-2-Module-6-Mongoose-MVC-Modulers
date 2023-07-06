@@ -1,38 +1,36 @@
-import { NextFunction, Request, Response, urlencoded } from 'express';
-import {createUserToDB, getUsersToDB, getUserById, getUserByMyId} from './user.service';
+import { Request, Response, NextFunction } from "express";
+import { getAllUsers, createUserService,findUserByIdService, findUserByMyIdService } from "./user.service";
 
-const createUser = async (req: Request, res: Response, next: NextFunction) => {
-    // patter
-    // route => contoler => service
-    const data = req.body
-    const user = await createUserToDB(data)
+const getUsers = async (req:Request, res:Response, next:NextFunction) => {
+    const users = await getAllUsers();
     res.status(200).json({
-        status: 'success',
-        data: user
+        status: "success",
+        data: users
     })
 }
-const getUser = async(req:Request, res:Response) => {
-    const users = await getUsersToDB()
+const createUser = async(req:Request, res: Response) => {
+    const user = req.body;
+    const data = await createUserService(user)
     res.status(200).json({
         status: 'success',
-        data:users
+        data
     })
 }
-const findUserById = async (req:Request, res:Response) => {
+const findUserById = async(req:Request, res:Response) => {
     const {id} = req.params
-    // console.log('params', req.params)
-    const user = await getUserById(id)
+    const user = await findUserByIdService(id)
     res.status(200).json({
-        status:'success',
+        status: 'success',
         data:user
     })
 }
 const findUserByMyId = async(req:Request, res:Response) => {
     const {id} = req.params
-    const user = await getUserByMyId(id)
+    const user = await findUserByMyIdService(id)
     res.status(200).json({
         status: 'success',
-        data: user
+        data:user
     })
 }
-export {createUser, getUser, findUserById, findUserByMyId}
+
+export {getUsers, createUser,findUserById, findUserByMyId}

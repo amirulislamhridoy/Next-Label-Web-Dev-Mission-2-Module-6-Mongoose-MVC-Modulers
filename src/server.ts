@@ -1,8 +1,9 @@
 import express, { urlencoded } from 'express';
 import app from './app';
 const port = process.env.PORT || 5000;
-import cors from 'cors';;
-import userRouters from './modules/user/user.router';
+import cors from 'cors';
+import userRouter from './modules/user/user.router';
+;
 
 // middlewares
 app.use(cors());
@@ -12,7 +13,7 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));
 
 // main function / router
-app.use('/api/v1/user', userRouters);
+app.use('/api/v1/user', userRouter);
 // inserting a test data into mongodb
 /*
 Step 1: Interface

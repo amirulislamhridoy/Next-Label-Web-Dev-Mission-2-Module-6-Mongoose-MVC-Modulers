@@ -1,3 +1,5 @@
+import { HydratedDocument, Model } from "mongoose";
+
 export interface IUser {
     id: string;
     role: 'student';
@@ -16,4 +18,6 @@ export interface IUser {
     permanentAddress: string;
   }
 
-// hello sir
+  export interface IUserMethods {
+    fullName(): string;
+  }
