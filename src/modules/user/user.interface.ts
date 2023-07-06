@@ -1,4 +1,4 @@
-interface IUser {
+export interface IUser {
     id: string;
     role: 'student';
     password: string;
@@ -15,5 +15,3 @@ interface IUser {
     presentAddress: string;
     permanentAddress: string;
   }
-
-export {IUser}
