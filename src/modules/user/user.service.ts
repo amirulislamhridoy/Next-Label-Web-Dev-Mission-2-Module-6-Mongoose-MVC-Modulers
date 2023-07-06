@@ -1,10 +1,10 @@
 import { IUser } from "./user.interface"
 import User from "./user.mode"
 
-const createUserToDB = async (data: IUser): Promise<IUser> => {
+const createUserToDB = async (data:IUser): Promise<IUser> => {
 
   // const data = {
-  //   id: '7779',
+  //   id: '923sdfed',
   //   role: 'student',
   //   password: 'alskd',
   //   name: {
